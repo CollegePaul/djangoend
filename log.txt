@@ -4,3 +4,8 @@ ps , djangoapp 1
 root, root
 New user added to the project! (Richard)
 Fixed naming issue
+
+
+** This is a new section **
+
+testing.....
