@@ -35,22 +35,42 @@
 <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
 
 <script>
-   var vals = "{{vals}}"
-   var names = "{{chars}}"
-   console.log(vals)
-   console.log(names)
+
+  // function htmlDecode(str) {
+  //     const doc = new DOMParser().parseFromString(str, "text/html");
+  //     return doc.documentElement.textContent;
+  // }
+
+  //  var vals = "{{vals}}"
+  //  var names = "{{chars}}"
+  //  var names = htmlDecode(names)
+  //  console.log(vals)
+  //  vals = vals.replace('[','');
+  //  vals = vals.replace(']','');
+  //  vals = vals.replace(' ','');
+  //  console.log(names)
+  //  var values = vals.split(",");
+  //  for (var i = 0; i < 4 ; i++){
+  //   values[i] = parseInt(values[i])
+  //   console.log(values[i])
+  //  }
+  //  console.log("Values:")
+  //  console.log(values)
     // var data = JSON.parse("{{data}}");
     // console.log(data)
-    const xValues = [names];
-    const yValues = [vals];
-    const barColors = ["red", "green","blue","orange","brown"];
+    
+    const xValues = ["a","b","c","d"
+    //to do
+    ];
+    const yValues = [5,2,3,0];
+    
     
     new Chart("myChart", {
       type: "bar",
       data: {
         labels: xValues,
         datasets: [{
-          backgroundColor: barColors,
+          backgroundColor: "red",
           data: yValues
         }]
       },
@@ -58,7 +78,7 @@
         legend: {display: false},
         title: {
           display: true,
-          text: "World Wine Production 2018"
+          text: "Demo"
         }
       }
     });
