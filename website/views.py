@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 
 from .models import Record
+from .models import Gamedata
 
 from django.contrib import messages
 
@@ -117,4 +118,26 @@ def delete_record(request, pk):
     record.delete()
     messages.success(request, "Your record was Deleted!")
     return redirect("dashboard")
+
+# Game Data view
+@login_required(login_url='my-login')
+def game_data   (request):
+
+    data = Gamedata.objects.all()
+
+    values = []
+    characters = []
+    for row in data:
+        characters.append(row.character_name)
+        values.append(row.stars)
+
+    context = {'data': data,
+               'vals': values,
+               'chars': characters
+             }
+
+    print(context)
+
+    return render(request, 'website/game-data.html',context=context )
+
 

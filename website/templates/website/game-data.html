@@ -1,0 +1,70 @@
+{% extends 'website/base.html' %}
+{% block content %}
+
+    <script     src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">     </script>
+
+    <br>
+    <h5> Welcome to the Game Data Demo Page </h5>
+    <hr>
+
+    <table class="table table-dark table-hover table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th scope="col"> ID </th>
+                <th scope="col"> Name </th>
+                <th scope="col"> Stars </th>
+            </tr>
+        </thead>   
+
+        <tbody>
+        {% if data %}
+            {% for row in data %}
+            <tr>
+                <td> {{row.id}} </td>
+                <td> {{row.character_name}}</td>
+                <td> {{row.stars}} </td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+
+    
+
+    
+<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+
+<script>
+   var vals = "{{vals}}"
+   var names = "{{chars}}"
+   console.log(vals)
+   console.log(names)
+    // var data = JSON.parse("{{data}}");
+    // console.log(data)
+    const xValues = [names];
+    const yValues = [vals];
+    const barColors = ["red", "green","blue","orange","brown"];
+    
+    new Chart("myChart", {
+      type: "bar",
+      data: {
+        labels: xValues,
+        datasets: [{
+          backgroundColor: barColors,
+          data: yValues
+        }]
+      },
+      options: {
+        legend: {display: false},
+        title: {
+          display: true,
+          text: "World Wine Production 2018"
+        }
+      }
+    });
+    </script>
+    
+{% endblock %}
+
+
+
