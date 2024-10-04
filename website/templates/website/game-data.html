@@ -1,7 +1,7 @@
 {% extends 'website/base.html' %}
 {% block content %}
 
-    <script     src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
     <br>
     <h5> Welcome to the Game Data Demo Page </h5>
@@ -29,49 +29,22 @@
         </tbody>
     </table>
 
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Z6EEEshHebc?si=q6JurKX5br_2PFhE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     
 
     
 <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
 
 <script>
-
-  // function htmlDecode(str) {
-  //     const doc = new DOMParser().parseFromString(str, "text/html");
-  //     return doc.documentElement.textContent;
-  // }
-
-  //  var vals = "{{vals}}"
-  //  var names = "{{chars}}"
-  //  var names = htmlDecode(names)
-  //  console.log(vals)
-  //  vals = vals.replace('[','');
-  //  vals = vals.replace(']','');
-  //  vals = vals.replace(' ','');
-  //  console.log(names)
-  //  var values = vals.split(",");
-  //  for (var i = 0; i < 4 ; i++){
-  //   values[i] = parseInt(values[i])
-  //   console.log(values[i])
-  //  }
-  //  console.log("Values:")
-  //  console.log(values)
-    // var data = JSON.parse("{{data}}");
-    // console.log(data)
-    
-    const xValues = ["a","b","c","d"
-    //to do
-    ];
-    const yValues = [5,2,3,0];
-    
     
     new Chart("myChart", {
       type: "bar",
       data: {
-        labels: xValues,
+        labels: [{% for row in data %} '{{ row.character_name }}', {% endfor %}],
         datasets: [{
           backgroundColor: "red",
-          data: yValues
+          data: [{% for row in data %} '{{ row.stars }}', {% endfor %}]
         }]
       },
       options: {

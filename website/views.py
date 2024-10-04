@@ -124,19 +124,7 @@ def delete_record(request, pk):
 def game_data   (request):
 
     data = Gamedata.objects.all()
-
-    values = []
-    characters = []
-    for row in data:
-        characters.append(row.character_name)
-        values.append(row.stars)
-
-    context = {'data': data,
-               'vals': values,
-               'chars': characters
-             }
-
-    print(context)
+    context = {'data': data}
 
     return render(request, 'website/game-data.html',context=context )
 
