@@ -11,6 +11,10 @@ from .models import Gamedata
 
 from django.contrib import messages
 
+#weather example imports
+from django.conf import settings
+import requests
+
 def home(request):
     return render(request, 'website/index.html')
 
@@ -127,5 +131,45 @@ def game_data   (request):
     context = {'data': data}
 
     return render(request, 'website/game-data.html',context=context )
+
+# Weather Data view
+@login_required(login_url='my-login')
+def weather_data   (request):
+
+
+    print("loading weather view")
+    if request.method == "POST":
+        
+        city=request.POST.get("city")
+        key = settings.MY_API_KEY
+        
+        BASE_URL = "http://api.openweathermap.org/data/2.5/weather?q="
+        
+        url =  BASE_URL + city + "&appid=" + key
+
+        json_data = requests.get(url).json()
+        
+        weather = json_data['weather'][0]['main']
+        temperature = int(json_data['main']['temp'] - 273.15)
+        min = int(json_data['main']['temp_min'] - 273.15)
+        max = int(json_data['main']['temp_max'] - 273.15)
+        icon = json_data['weather'][0]['icon']
+
+        data = {
+            "location": city,
+            "weather": weather,
+            "temperature": temperature,
+            "min": min,
+            "max": max,
+            "icon":icon
+        }
+
+        context = {'data': data}
+
+        return render(request, 'website/weather-data.html',context=context )
+    else:
+        return render(request, 'website/weather-data.html' )
+
+
 
 
