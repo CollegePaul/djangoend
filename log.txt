@@ -1,3 +1,14 @@
+IMPORTANT NOTICE:
+In settings.py MY_API_KEY = os.environ['WEATHER_API_KEY'] has been added
+
+This means you need this environment variable to load the project.
+You can comment out this line if you dont have it.
+
+Create a environment variable called EATHER_API_KEY and post your key as the value
+
+you will not be able to load the weather-data page.
+
+
 
 users:
 root, root
