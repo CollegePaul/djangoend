@@ -1,0 +1,31 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<p> this is the hotel page </p>
+
+<div class="container bg-primary text-white p-5 form-layout">
+    <h3>Book your hotel stay</h3>
+    
+    <hr>
+    <br>
+
+    <form action="{% url 'hotel' %}" method="POST" autocomplete="off">
+        {% csrf_token %}
+        
+        {{form|crispy}}
+        <br>
+        <h2 id="hotel_output" >Hotel cost: £0.00</h2>
+        <br>
+
+        <button type="submit" class="btn btn-primary w-100 btn-block p-2"> Book &nbsp; <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+    </form>
+     
+
+</div>
+<br>
+
+<script src="{% static 'js/hotel.js' %}"></script>
+
+{% endblock %}

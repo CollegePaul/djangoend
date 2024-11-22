@@ -1,10 +1,11 @@
+{% load static %}
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-center">
 
     <a class="navbar-brand main-heading" href="{% url '' %}">   
-      &nbsp; Django demo App
+      &nbsp; Rigets Zoo Adventure
     </a>
-  
-  
+    
     <button
       class="navbar-toggler"
       type="button"
@@ -15,38 +16,37 @@
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
-  
     </button>
   
   
-      <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
-  
-        
-        <ul class="navbar-nav mr-auto">
-  
-  
-          &nbsp;     &nbsp;     &nbsp; 
+      <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">  
+        <ul class="navbar-nav mr-auto"> &nbsp; &nbsp;&nbsp; 
   
           {% if user.is_authenticated %}
-  
             <li class="nav-item">
-        
-              <a class="nav-link" href="{% url 'dashboard' %}">Dashboard &nbsp; <i class="fa fa-home" aria-hidden="true"></i> </a>
-  
-            </li>
-  
-  
-            &nbsp;     &nbsp;     &nbsp; 
-  
-  
-            <li class="nav-item">
-  
-              <a class="nav-link" href="{% url 'user-logout' %}">Sign out &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
-  
-            </li>
-  
-  
+               <a class="nav-link" href="{% url 'dashboard' %}">Dashboard &nbsp; <i class="fa fa-home" aria-hidden="true"></i> </a>
+            </li>&nbsp; &nbsp; &nbsp; 
         </ul>
+     </div>
+
+      <ul class="navbar-nav mr-auto">
+        &nbsp;     &nbsp;     &nbsp; 
+ 
+
+        <li class="nav-item">
+           
+           <a class="nav-link" href="{% url 'user-logout' %}">Sign out &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; </a>
+        </li>
+
+        <li>
+          <img id="icon" src="{% static 'icons/'%}{{user.icon}}.png" alt="zoo hotel" >
+        </li>
+        &nbsp;     &nbsp;     &nbsp; 
+       
+        
+   </ul>
+
+       
   
         {% else %}
   
@@ -65,12 +65,14 @@
           <a class="nav-link" href="{% url 'my-login' %}">Login</a>
   
         </li>
-  
+        
+
+      </div>
   
         {% endif %}
       
-        
-      </div>
+      
+
   
   
   </nav>

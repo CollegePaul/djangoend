@@ -1,0 +1,41 @@
+ 
+
+.jumbotron {
+    
+    background-image: url("../images/zoo_banner.jpg");
+    background-size: cover;
+  }
+
+  .fill {
+    height: 200px;
+  }
+
+
+  .foot {
+
+    height: 200px;
+  }
+
+ .card{
+  border-radius: 10px;
+ }
+
+ .card img{
+  border-radius: 10px;
+ }
+
+
+ .form-layout{
+    width:500px;
+    border-radius: 5px;
+ }
+
+ #icon{
+  width: 48px;
+  height: 48px;
+  margin-right: 20px;
+ }
+
+ .signout{
+  margin-right: 20px;
+ }

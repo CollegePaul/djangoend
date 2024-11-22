@@ -1,0 +1,57 @@
+{% extends 'website/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+{% block content %}
+<h2>Have a look at our range of educational resources</h2>
+<p>Our activities are design in line with national school curriculms to suport Children at various ages.
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/bug.jpg' %}" alt="zoo hotel" >
+                
+                <div class="card-body">
+                    <h5 class="card-title">Key Stage 1</h5>
+                    <p class="card-text">Explore the world of bugs, with our bug hunt worksheet.</p>
+                    <a href="{% static 'content/KS1.pdf' %}" target="_blank" class="btn btn-primary">Download</a>
+                    </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/eco.jpg' %}" alt="zoo hotel" >
+                
+                <div class="card-body">
+                    <h5 class="card-title">Key Stage 3</h5>
+                    <p class="card-text">Complete our activity about ecosystems and food webs.</p>
+                    <a href="{% static 'content/KS2.pdf' %}" target="_blank" class="btn btn-primary">Download</a>
+                    </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/ethical.jpg' %}" alt="zoo hotel" >
+                
+                <div class="card-body">
+                    <h5 class="card-title">Key Stage 4</h5>
+                    <p class="card-text">Think about and discuss ethincal treatment of animals.</p>
+                    <a href="{% static 'content/KS4.pdf' %}" class="btn btn-primary">Download</a>
+                    </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

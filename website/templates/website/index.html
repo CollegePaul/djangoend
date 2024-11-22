@@ -1,16 +1,55 @@
 {% extends 'website/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 
 {% block content %}
-    <br>
-    <div class="text-center">
-        <h3>Django demo App</h3>
-        <br>
-        <h5> A CRUD application</h5>
-        <hr>
-        <br>
-        <a href="{% url 'register' %}" class="btn btn-primary">Create your account &nbsp; <i class="fa fa-user-plus" aria-hidden="true"></i></a>
 
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/hotel.png' %}" alt="zoo hotel" >
+                
+                <div class="card-body">
+                    <h5 class="card-title">Zoo Hotel</h5>
+                    <p class="card-text">Stay overnight in our luxury zoo themed hotel.</p>
+                    <a href="hotel" class="btn btn-primary">Book a Night</a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="col-md-4 mb-3">
+
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/education.jpg' %}" alt="zoo hotel" >
+                
+                <div class="card-body">
+                    <h5 class="card-title">Educational</h5>
+                    <p class="card-text">Explore our range of educational resources to support your visit.</p>
+                    <a href="education" class="btn btn-primary">Resources</a>
+                    </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/attractions.jpg' %}" alt="zoo hotel" >
+                
+                <div class="card-body">
+                    <h5 class="card-title">Attractions</h5>
+                    <p class="card-text">Visit a range of animals in their natural habitat.</p>
+                    <a href="zoo" class="btn btn-primary">Book a Visit</a>
+                    </div>
+
+            </div>
+        </div>
 
     </div>
-{% endblock %}
+</div>
 
+{% endblock %}

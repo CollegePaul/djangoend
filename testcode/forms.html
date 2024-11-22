@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+<form action="/action_page.php">
+    <label for="Arrive">Arrive:</label><br>
+    <input  type="date" id="arrive" name="arrive" value="" onchange="getDifference()"><br>
+    <label for="Depart">Depart:</label><br>
+    <input  type="date" id="depart" name="depart" value="depart" onchange="getDifference()"><br><br>
+    <input type="submit" value="Submit">
+  </form> 
+    
+
+
+<script>
+const arriveDate = document.getElementById("arrive")
+const departDate = document.getElementById("depart")
+
+    function getDifference(){
+        console.log(arriveDate.value)
+        console.log(departDate.value)
+        
+        console.log(departDate.value - arriveDate.value)
+
+
+
+    }
+
+
+
+</script>
+
+</body>
+
+
+
+
+</html>

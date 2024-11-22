@@ -1,55 +1,117 @@
 {% extends 'website/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 
 {% block content %}
+<div class="container">
+    <p>Your number of Zoo Points left is: {{user.points}} <p>
+</div>
 
-    <br>
-    <h5> Welcome to the Dashboard {{user}} </h5>
-    <hr>
+<div class="container">
+    <h2> Hotel bookings <h2>
+
+
+        <table class="table table-hover table-bordered">
+
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col"> Booking ID </th>
+                    <th scope="col"> Booking Date </th>
+                    <th scope="col"> Arrive </th>
+                    <th scope="col"> Depart </th>
+                    <th scope="col"> Adults </th>
+                    <th scope="col"> Children </th>
+                    <th scope="col"> OAPs </th>
+                    <th scope="col"> Cost </th>
+                    <th scope="col"> Points </th>
+                </tr>
+            </thead>   
     
-    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-record' %}">
-        Create record &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
-    </a>
+            <tbody>
+            {% if hotel_records %}
+                {% for record in hotel_records %}
+                <tr>
+                    <td> {{record.booking_id}} </td>
+                    <td> {{record.hotel_booking_date}} </td>
+                    <td> {{record.hotel_booking_date_arrive}} </td>
+                    <td> {{record.hotel_booking_date_leave}} </td>
+                    <td> {{record.hotel_booking_adults}} </td>
+                    <td> {{record.hotel_booking_children}} </td>
+                    <td> {{record.hotel_booking_oap}} </td>
+                    <td> {{record.hotel_total_cost}} </td>
+                    <td> {{record.hotel_points}} </td>
+                    
+                </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+</div>
 
-    <hr>
 
-    <table class="table table-dark table-hover table-bordered">
+<div class="container">
+    <h2> Zoo bookings <h2>
 
-        <thead class="table-primary">
-            <tr>
-                <th scope="col"> ID </th>
-                <th scope="col"> Full Name </th>
-                <th scope="col"> Email </th>
-                <th scope="col"> Phone </th>
-                <th scope="col"> Address </th>
-                <th scope="col"> City </th>
-                <th scope="col"> Date Joined </th>
-                <th scope="col"> View </th>
-            </tr>
-        </thead>   
 
-        <tbody>
-        {% if records %}
-            {% for record in records %}
-            <tr>
-                <td> {{record.id}} </td>
-                <td> {{record.first_name}} {{record.last_name}} </td>
-                <td> {{record.email}} </td>
-                <td> {{record.phone}} </td>
-                <td> {{record.address}} </td>
-                <td> {{record.city}} </td>
-                <td> {{record.creation_data}} </td>
-                <td> <a class="btn btn-success btn-small" href={% url 'record' record.id %}> 
-                    <i class="fa fa-eye" aria-hidden="true"></i> 
-                    </a></td>
-            </tr>
-            {% endfor %}
-        {% endif %}
-        </tbody>
-    </table>
+        <table class="table table-hover table-bordered">
 
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col"> Booking ID </th>
+                    <th scope="col"> Booking Date </th>
+                    <th scope="col"> Arrive </th>
+                    <th scope="col"> Depart </th>
+                    <th scope="col"> Adults </th>
+                    <th scope="col"> Children </th>
+                    <th scope="col"> OAPs </th>
+                    <th scope="col"> Cost </th>
+                    <th scope="col"> Points </th>
+                </tr>
+            </thead>   
+    
+            <tbody>
+            {% if zoo_records %}
+                {% for record in zoo_records %}
+                <tr>
+                    <td> {{record.booking_id}} </td>
+                    <td> {{record.zoo_booking_date}} </td>
+                    <td> {{record.zoo_booking_date_arrive}} </td>
+                    <td> {{record.zoo_booking_date_leave}} </td>
+                    <td> {{record.zoo_booking_adults}} </td>
+                    <td> {{record.zoo_booking_children}} </td>
+                    <td> {{record.zoo_booking_oap}} </td>
+                    <td> {{record.zoo_total_cost}} </td>
+                    <td> {{record.zoo_points}} </td>
+                    
+                </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+</div>
+
+<div class="container">
+    <br>
+    <h3>Choose your Icon</h3>
+    Your current icon is:
+    <img id="icon" src="{% static 'icons/'%}{{user.icon}}.png" alt="zoo hotel" >
+    <br><br>
+    <form action="dashboard"  method="POST">
+        {% csrf_token %}
+        <select name="icon" id="icons">
+            <option value="lion">Lion</option>
+            <option value="bee">Bee</option>
+            <option value="elephant">Elephant</option>
+            <option value="fish">Fish</option>
+            <option value="fox">Fox</option>
+            <option value="frog">Frog</option>
+            <option value="giraffe">Giraffe</option>
+            <option value="turtle">Turtle</option>
+          </select>
+        <input type="submit" value="Submit">
+    </form> 
+    <br>
+</div>
 
 {% endblock %}
-
-
-

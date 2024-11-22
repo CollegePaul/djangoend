@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Django Project</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {% endcomment %}
+</head>
+
+<body>
+    <p> user  {{user}} </p>
+
+    <p> points {{user.points}} </p>
+    <p> ID {{user.date_joined}} </p>
+    
+    <p> ID {{user.id}} </p>
+
+    <p> Icon {{user.icon}} </p>
+
+    <img id="icon" src="{% static 'icons/'%}{{user.icon}}.png" alt="zoo hotel" >
+
+  
+</body>

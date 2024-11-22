@@ -1,0 +1,19 @@
+21/10/24
++ Added Registery page
+x Fixed Bootstarp form using pip install crispy-bootstrap4, 
+    and adding crispy_bootstrap4 to the installed apps
++ Added Login Form View
++ Added Login html page, fixed form colour with text-white  bg-primary
++ added Requirements.tex
+
+
+04/11/24
+
+
+12/11/24
+
+- need to add the @login decorator
+- need to fix the 
+
+
+    
